@@ -1,7 +1,7 @@
 {
   "name": "ec-cube/DisableNonMember4",
   "version": "1.0.0",
-  "description": "非会員の購入を不可にするプラグイン for EC-CUBE4",
+  "description": "会員登録必須化(非会員購入不可)プラグイン for EC-CUBE4",
   "type": "eccube-plugin",
   "require": {
     "ec-cube/plugin-installer": "~0.0.7"
