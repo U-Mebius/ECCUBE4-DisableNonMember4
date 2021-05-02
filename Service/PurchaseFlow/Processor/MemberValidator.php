@@ -63,7 +63,7 @@ class MemberValidator extends ItemHolderValidator
         $Order = $itemHolder;
 
         if (!$Order->getCustomer()) {
-            $this->throwInvalidItemException('please.login.to.purchase', null, false);
+            $this->throwInvalidItemException('plugin.disable_non_member.please_login_to_purchase', null, false);
         }
 
     }
