@@ -1,11 +1,11 @@
 <?php
 
 /*
- * This file is part of EC-CUBE
+ * This file is part of DisableNonMember4
  *
- * Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+ * Copyright(c) U-Mebius Inc. All Rights Reserved.
  *
- * http://www.lockon.co.jp/
+ * https://umebius.com/
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,22 +13,21 @@
 
 namespace Plugin\DisableNonMember4\Tests\Web;
 
-use Eccube\Common\Constant;
-use Faker\Generator;
-
+use Eccube\Tests\Web\AbstractWebTestCase;
 
 /**
  * Class NonMemberShoppingControllerTest.
  */
-class NonMemberShoppingControllerTest extends BaseTestCase
+class NonMemberShoppingControllerTest extends AbstractWebTestCase
 {
-
-    /**
-     * Set up function.
-     */
     public function setUp()
     {
         parent::setUp();
+    }
+
+    public function tearDown()
+    {
+        parent::tearDown();
     }
 
     /**
