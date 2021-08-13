@@ -2,11 +2,8 @@
 
 /*
  * This file is part of DisableNonMember4
- *
  * Copyright(c) U-Mebius Inc. All Rights Reserved.
- *
  * https://umebius.com/
- *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
@@ -20,7 +17,6 @@ use Eccube\Entity\Order;
 use Eccube\Service\PurchaseFlow\InvalidItemException;
 use Eccube\Service\PurchaseFlow\ItemHolderValidator;
 use Eccube\Service\PurchaseFlow\PurchaseContext;
-use Eccube\Service\PurchaseFlow\ItemValidator;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
@@ -40,8 +36,6 @@ class MemberValidator extends ItemHolderValidator
 
     /**
      * DeliveryFeePreprocessor constructor.
-     *
-     * @param RequestStack $requestStack
      */
     public function __construct(
         RequestStack $requestStack,
@@ -51,10 +45,7 @@ class MemberValidator extends ItemHolderValidator
         $this->eccubeConfig = $eccubeConfig;
     }
 
-
     /**
-     * @param ItemHolderInterface $itemHolder
-     * @param PurchaseContext $context
      * @throws InvalidItemException
      */
     protected function validate(ItemHolderInterface $itemHolder, PurchaseContext $context)
@@ -65,11 +56,9 @@ class MemberValidator extends ItemHolderValidator
         if (!$Order->getCustomer()) {
             $this->throwInvalidItemException('plugin.disable_non_member.please_login_to_purchase', null, false);
         }
-
     }
 
     protected function handle(ItemHolderInterface $item)
     {
-
     }
 }

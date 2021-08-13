@@ -2,11 +2,8 @@
 
 /*
  * This file is part of DisableNonMember4
- *
  * Copyright(c) U-Mebius Inc. All Rights Reserved.
- *
  * https://umebius.com/
- *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
@@ -19,7 +16,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class NonMemberShoppingController extends AbstractController
 {
-
     /**
      * 非会員処理
      *
@@ -29,5 +25,4 @@ class NonMemberShoppingController extends AbstractController
     {
         return $this->redirectToRoute('shopping_login');
     }
-
 }
