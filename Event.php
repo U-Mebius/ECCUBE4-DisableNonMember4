@@ -13,12 +13,16 @@
 
 namespace Plugin\DisableNonMember4;
 
+use Eccube\Controller\NonMemberShoppingController;
 use Eccube\Event\EccubeEvents;
 use Eccube\Event\EventArgs;
 use Eccube\Event\TemplateEvent;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
+use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 class Event implements EventSubscriberInterface
@@ -33,13 +37,19 @@ class Event implements EventSubscriberInterface
      */
     protected $authorizationChecker;
 
+    /**
+     * @var RouterInterface
+     */
+    private $router;
+
     public function __construct(
         ContainerInterface $container,
-        AuthorizationCheckerInterface $authorizationChecker
-    )
-    {
+        AuthorizationCheckerInterface $authorizationChecker,
+        RouterInterface $router
+    ) {
         $this->container = $container;
         $this->authorizationChecker = $authorizationChecker;
+        $this->router = $router;
     }
 
     /**
@@ -48,9 +58,27 @@ class Event implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
+            KernelEvents::CONTROLLER => 'onKernelController',
             EccubeEvents::FRONT_CART_BUYSTEP_COMPLETE => 'onFrontCartBuystepComplete',
-            'Shopping/login.twig' => 'onShoppingLoginTwigRender'
+            'Shopping/login.twig' => 'onShoppingLoginTwigRender',
         ];
+    }
+
+    public function onKernelController(FilterControllerEvent $event)
+    {
+        $controllers = $event->getController();
+        if (!is_array($controllers)) {
+            return;
+        }
+
+        foreach ($controllers as $controller) {
+            if ($controller instanceof NonMemberShoppingController) {
+                $event->setController(function () {
+                    return new RedirectResponse($this->router->generate('entry'));
+                });
+                break;
+            }
+        }
     }
 
     public function onFrontCartBuystepComplete(EventArgs $eventArgs)
