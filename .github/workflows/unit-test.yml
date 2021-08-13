@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        eccube-versions: ['4.0', '4.0.5', '4.0.4', '4.0.3']
+        eccube-versions: ['4.1-beta2', '4.0', '4.0.6', '4.0.5', '4.0.4', '4.0.3']
         php-versions: [ 7.1, 7.2, 7.3, 7.4 ]
         database: [ mysql, pgsql ]
         exclude:
