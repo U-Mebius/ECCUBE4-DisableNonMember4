@@ -1,6 +1,6 @@
 {
-  "name": "ec-cube/DisableNonMember4",
-  "version": "1.0.0",
+  "name": "ec-cube/disablenonmember4",
+  "version": "1.1.0",
   "description": "会員登録必須化(非会員購入不可)プラグイン for EC-CUBE4",
   "type": "eccube-plugin",
   "require": {
