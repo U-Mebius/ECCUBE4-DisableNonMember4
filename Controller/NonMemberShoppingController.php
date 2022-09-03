@@ -1,14 +1,14 @@
 <?php
 
 /*
- * This file is part of DisableNonMember4
+ * This file is part of DisableNonMember42
  * Copyright(c) U-Mebius Inc. All Rights Reserved.
  * https://umebius.com/
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Plugin\DisableNonMember4\Controller;
+namespace Plugin\DisableNonMember42\Controller;
 
 use Eccube\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

@@ -1,14 +1,14 @@
 <?php
 
 /*
- * This file is part of DisableNonMember4
+ * This file is part of DisableNonMember42
  * Copyright(c) U-Mebius Inc. All Rights Reserved.
  * https://umebius.com/
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Plugin\DisableNonMember4;
+namespace Plugin\DisableNonMember42;
 
 use Eccube\Controller\NonMemberShoppingController;
 use Eccube\Event\EccubeEvents;
@@ -17,6 +17,7 @@ use Eccube\Event\TemplateEvent;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Routing\RouterInterface;
@@ -61,7 +62,7 @@ class Event implements EventSubscriberInterface
         ];
     }
 
-    public function onKernelController(FilterControllerEvent $event)
+    public function onKernelController(ControllerEvent $event)
     {
         $controllers = $event->getController();
         if (!is_array($controllers)) {
@@ -89,7 +90,7 @@ class Event implements EventSubscriberInterface
 
     public function onShoppingLoginTwigRender(TemplateEvent $event)
     {
-        $event->addAsset('@DisableNonMember4/shopping_login_css.twig');
-        $event->addSnippet('@DisableNonMember4/shopping_login.twig');
+        $event->addAsset('@DisableNonMember42/shopping_login_css.twig');
+        $event->addSnippet('@DisableNonMember42/shopping_login.twig');
     }
 }

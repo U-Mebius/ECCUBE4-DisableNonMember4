@@ -1,6 +1,6 @@
 <?php
 $header = <<<EOL
-This file is part of DisableNonMember4
+This file is part of DisableNonMember42
 Copyright(c) U-Mebius Inc. All Rights Reserved.
 https://umebius.com/
 For the full copyright and license information, please view the LICENSE

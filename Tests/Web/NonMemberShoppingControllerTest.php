@@ -1,14 +1,14 @@
 <?php
 
 /*
- * This file is part of DisableNonMember4
+ * This file is part of DisableNonMember42
  * Copyright(c) U-Mebius Inc. All Rights Reserved.
  * https://umebius.com/
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Plugin\DisableNonMember4\Tests\Web;
+namespace Plugin\DisableNonMember42\Tests\Web;
 
 use Eccube\Tests\Web\AbstractWebTestCase;
 
@@ -17,12 +17,12 @@ use Eccube\Tests\Web\AbstractWebTestCase;
  */
 class NonMemberShoppingControllerTest extends AbstractWebTestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         parent::tearDown();
     }
